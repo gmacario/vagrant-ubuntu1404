@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
+
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
 
@@ -44,16 +45,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
+  config.vm.provider :virtualbox do |vb|
+     # Don't boot with headless mode
+     vb.gui = true
+  
+     # Use VBoxManage to customize the VM. For example to change memory:
+     vb.customize ["modifyvm", :id, "--memory", "1024"]
+     vb.customize ["modifyvm", :id, "--vram", "16"]
+     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+     vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
+
+  # Run this command manually after XWindows is installed:
+  # vagrant vbguest --do install
+  #config.vbguest.auto_update = false
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -115,4 +123,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+
+  # Enable provisioning with shell script
+  #config.vm.provision :shell, :path => "bootstrap.sh"
+
 end
