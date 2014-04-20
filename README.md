@@ -1,4 +1,4 @@
 vagrant-ubuntu1404
 ==================
 
-Vagrant project for testing Ubunu 14.04
+Vagrant project for deploying Ubuntu-desktop 14.04
