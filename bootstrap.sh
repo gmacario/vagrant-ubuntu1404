@@ -28,6 +28,9 @@ sudo apt-get -y install git git-svn tig
 # Other things I will never live without...
 sudo apt-get -y install mc
 
+# Install Docker
+sudo apt-get -y install docker.io
+
 # TODO
 
 # === EOF ===
