@@ -52,7 +52,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      # Use VBoxManage to customize the VM
      vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
      #
-     vb.customize ["modifyvm", :id, "--memory", "1024"]
+     vb.customize ["modifyvm", :id, "--memory", "2048"]
      vb.customize ["modifyvm", :id, "--vram", "16"]
      vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
      #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
