@@ -20,7 +20,7 @@ sudo apt-get update
 # Upgrading from Ubuntu server to desktop
 #
 # See http://askubuntu.com/questions/322122/switching-from-server-to-desktop
-sudo apt-get -y install ubuntu-desktop 
+#sudo apt-get -y install ubuntu-desktop 
 
 # Install git and related tools
 sudo apt-get -y install git git-svn tig
@@ -29,7 +29,7 @@ sudo apt-get -y install git git-svn tig
 sudo apt-get -y install mc
 
 # Install Docker
-sudo apt-get -y install docker.io
+#sudo apt-get -y install docker.io
 
 # TODO
 
