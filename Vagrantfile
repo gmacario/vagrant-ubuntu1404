@@ -25,30 +25,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    end
 #  end
 
-#  # From http://vimeo.com/93176926
-#  config.vm.define "phusion" do |v|
-#    v.vm.provider "docker" do |d|
-#      d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
-#      d.image   = "phusion/baseimage"
-#      d.has_ssh = true
-#    end
-#    #v.ssh.username = "root"
-#    #v.ssh.private_key_path = "phusion.key"
-#    v.vm.provision "shell", inline: "echo Hello"
-#    v.vm.synced_folder "./keys", "/vagrant"
-#  end
-
-  config.vm.define "by" do |v|
+  config.vm.define "phusion" do |v|
     v.vm.provider "docker" do |d|
-      #d.cmd     = ["/bin/bash"]
-      #d.image = "gmacario/build-yocto"
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.image   = "phusion/baseimage"
       d.has_ssh = true
     end
     v.ssh.username = "root"
     v.ssh.private_key_path = "phusion.key"
-    #v.ssh.private_key_path = "~/.ssh/id_rsa"
+    #v.vm.provision "shell", inline: "echo Hello"
+    #v.vm.synced_folder "./keys", "/vagrant"
   end
 
   # Every Vagrant virtual environment requires a box to build off of.
