@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# See https://www.vagrantup.com/blog/feature-preview-vagrant-1-6-docker-dev-environments.html
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -9,13 +11,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
+  config.vm.define "app" do |v|
+    v.vm.provider "docker" do |d|
+      d.build_dir = "./docker"
+      d.cmd       = ["ls", "/app"]
+      d.remains_running = false
+    end
+  end
+
+  config.vm.define "db" do |v|
+    v.vm.provider "docker" do |d|
+      d.image = "paintedfox/postgresql"
+    end
+  end
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "trusty64"
+  #config.vm.box = "trusty64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+  #config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -45,22 +60,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  config.vm.provider :virtualbox do |vb|
-     # Don't boot with headless mode
-     #vb.gui = true
-  
-     # Use VBoxManage to customize the VM
-     vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-     #
-     #vb.customize ["modifyvm", :id, "--memory", "2048"]
-     #vb.customize ["modifyvm", :id, "--vram", "16"]
-     #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
-     #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
-     #
-     #vb.customize ["modifyvm", :id, "--audio", "dsound"]
-     #
-     #vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-  end
+  #config.vm.provider :virtualbox do |vb|
+  #   # Don't boot with headless mode
+  #   vb.gui = true
+  # 
+  #    # Use VBoxManage to customize the VM
+  #    vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+  #    #
+  #    vb.customize ["modifyvm", :id, "--memory", "2048"]
+  #    vb.customize ["modifyvm", :id, "--vram", "16"]
+  #    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+  #    #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+  #    #
+  #    vb.customize ["modifyvm", :id, "--audio", "dsound"]
+  #    #
+  #    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+  #end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
@@ -131,6 +146,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 
   # Enable provisioning with shell script
-  config.vm.provision :shell, :path => "bootstrap.sh"
+  #config.vm.provision :shell, :path => "bootstrap.sh"
 
 end
