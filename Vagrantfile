@@ -11,26 +11,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-#  config.vm.define "app" do |v|
-#    v.vm.provider "docker" do |d|
-#      d.build_dir = "./docker"
-#      d.cmd       = ["ls", "/app"]
-#      d.remains_running = false
-#    end
-#  end
-
-#  config.vm.define "db" do |v|
-#    v.vm.provider "docker" do |d|
-#      d.image = "paintedfox/postgresql"
-#    end
-#  end
-
   config.vm.provider "virtualbox" do |vb, override|
+    # Every Vagrant virtual environment requires a box to build off of.
     override.vm.box = "trusty64"
+    # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system.
     override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   end
 
-  config.vm.define "phusion" do |v|
+  config.vm.define "default" do |v|
     v.vm.provider "docker" do |d|
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.image   = "phusion/baseimage"
@@ -43,13 +31,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #v.vm.provision "shell", inline: "echo Hello"
     #v.vm.synced_folder "./keys", "/vagrant"
   end
-
-  # Every Vagrant virtual environment requires a box to build off of.
-  #config.vm.box = "trusty64"
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  #config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
