@@ -25,14 +25,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    end
 #  end
 
+  config.vm.provider "virtualbox" do |vb, override|
+    override.vm.box = "trusty64"
+    override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+  end
+
   config.vm.define "phusion" do |v|
     v.vm.provider "docker" do |d|
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.image   = "phusion/baseimage"
       d.has_ssh = true
     end
-    v.ssh.username = "root"
-    v.ssh.private_key_path = "phusion.key"
+    v.vm.provider "docker" do |d, override|
+      override.ssh.username = "root"
+      override.ssh.private_key_path = "phusion.key"
+    end
     #v.vm.provision "shell", inline: "echo Hello"
     #v.vm.synced_folder "./keys", "/vagrant"
   end
