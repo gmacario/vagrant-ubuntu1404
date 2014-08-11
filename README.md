@@ -18,7 +18,7 @@ git checkout docker-provider
 ### Testing using the VirtualBox (default) provider
 Build and start the guest VM:
 ```
-vagrant up
+vagrant up --provider=virtualbox
 ```
 
 When the guest OS is up and running you may login via SSH:
