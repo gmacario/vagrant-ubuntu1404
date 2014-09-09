@@ -12,7 +12,6 @@ You may configure the actual packages to be installed through:
 ```
 git clone git@github.com:gmacario/vagrant-ubuntu1404.git
 cd vagrant-ubuntu1404
-git checkout docker-provider
 ```
 
 ### Testing using the VirtualBox (default) provider
