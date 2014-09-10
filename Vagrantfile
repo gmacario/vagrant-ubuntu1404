@@ -11,6 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
+  #p "DEBUG: config", config
+
   config.vm.provider "virtualbox" do |vb, override|
     # Every Vagrant virtual environment requires a box to build off of.
     override.vm.box = "trusty64"
@@ -20,9 +22,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "default" do |v|
     v.vm.provider "docker" do |d|
+      # Additional Docker provider configuration
+      # See https://docs.vagrantup.com/v2/docker/configuration.html
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.image   = "phusion/baseimage"
+      d.create_args = [
+	"--name=test-lxc-conf",
+	"--lxc-conf=[lxc.network.hwaddr=aa:bb:cc:dd:ee:ff, lxc.network.ipv4=1.2.3.4]"
+        ]
       d.has_ssh = true
+      p "DEBUG: d", d
     end
     v.vm.provider "docker" do |d, override|
       override.ssh.username = "root"
@@ -30,6 +39,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     #v.vm.provision "shell", inline: "echo Hello"
     #v.vm.synced_folder "./keys", "/vagrant"
+
+    #p "DEBUG: v", v
+    p "DEBUG: v.vm", (v.vm)
+
   end
 
   # Create a forwarded port mapping which allows access to a specific port
