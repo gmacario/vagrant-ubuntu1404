@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Every Vagrant virtual environment requires a box to build off of.
     override.vm.box = "ubuntu/trusty64"
     # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system.
-    override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    #override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   end
 
   config.vm.define "default" do |v|
@@ -77,8 +77,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # See https://www.virtualbox.org/manual/ch08.html
     #
     # 8.8.1. General settings
-    # vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-    # vb.customize ["modifyvm", :id, "--memory", "4096"]
+     vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+     vb.customize ["modifyvm", :id, "--memory", "2048"]
     # vb.customize ["modifyvm", :id, "--cpus", "2"]
     # vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     #
@@ -91,7 +91,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #
     # 8.8.3. Serial port, audio, clipboard and USB settings
     # vb.customize ["modifyvm", :id, "--audio", "dsound"]
-    # vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     #
     # 8.8.4. Remote machine settings
     # vb.customize ["modifyvm", :id, "--vrde", "on"]
