@@ -69,7 +69,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       #
       vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
       #
-      vb.customize ["modifyvm", :id, "--memory", "2048"]
+      vb.customize ["modifyvm", :id, "--memory", "4096"]
       #vb.customize ["modifyvm", :id, "--vram", "16"]
       #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
       #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
