@@ -21,4 +21,7 @@ sudo apt-get -y install git git-svn tig
 # Other things I will never live without...
 sudo apt-get -y install mc
 
+# Install packages required by MEL 2014.05 (Yocto)
+sudo apt-get install -y g++ diffstat texinfo chrpath
+
 # === EOF ===
