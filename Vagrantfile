@@ -13,9 +13,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |vb, override|
     # Every Vagrant virtual environment requires a box to build off of.
-    override.vm.box = "trusty64"
+    override.vm.box = "ubuntu/trusty64"
     # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system.
-    override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    #override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   end
 
   config.vm.define "default" do |v|
@@ -60,22 +60,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  #config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  # 
-  #    # Use VBoxManage to customize the VM
-  #    vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-  #    #
-  #    vb.customize ["modifyvm", :id, "--memory", "2048"]
-  #    vb.customize ["modifyvm", :id, "--vram", "16"]
-  #    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
-  #    #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
-  #    #
-  #    vb.customize ["modifyvm", :id, "--audio", "dsound"]
-  #    #
-  #    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-  #end
+  config.vm.provider :virtualbox do |vb|
+      # Don't boot with headless mode
+      #vb.gui = true
+      #
+      # Use VBoxManage to customize the VM
+      # See https://www.virtualbox.org/manual/ch08.html
+      #
+      vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+      #
+      vb.customize ["modifyvm", :id, "--memory", "2048"]
+      #vb.customize ["modifyvm", :id, "--vram", "16"]
+      #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+      #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+      #
+      #vb.customize ["modifyvm", :id, "--audio", "dsound"]
+      #
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #
+      # 8.8.2. Networking settings
+      #vb.customize ["modifyvm", :id, "--macaddress1", "002500aabbcc"]
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
@@ -146,6 +152,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 
   # Enable provisioning with shell script
-  #config.vm.provision :shell, :path => "bootstrap.sh"
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
 end
