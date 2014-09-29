@@ -21,7 +21,13 @@ sudo apt-get -y install git git-svn tig
 # Other things I will never live without...
 sudo apt-get -y install mc
 
+# Install packages required by SCB installer
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get -y install libgtk2.0-0:i386 libxtst6:i386 gtk2-engines-murrine:i386 \
+	lib32stdc++6 libxt6:i386 libdbus-glib-1-2:i386 libasound2:i386
+
 # Install packages required by MEL 2014.05 (Yocto)
-sudo apt-get install -y g++ diffstat texinfo chrpath
+sudo apt-get -y install g++ diffstat texinfo chrpath
 
 # === EOF ===
