@@ -52,7 +52,7 @@ sudo apt-get -y install mc
 #    libdbus-glib-1-2:i386 libasound2:i386
 
 # Install packages required by MEL 2014.05 (Yocto)
-#sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
+sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
 
 # Install packages required by Vista 3.9.0
 #sudo apt-get -y install xterm
