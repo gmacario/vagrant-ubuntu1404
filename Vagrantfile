@@ -67,20 +67,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Use VBoxManage to customize the VM
       # See https://www.virtualbox.org/manual/ch08.html
       #
+      # 8.8.1. General settings
       vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-      #
       vb.customize ["modifyvm", :id, "--memory", "4096"]
+      vb.customize ["modifyvm", :id, "--cpus", "2"]
+      #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+      #
       #vb.customize ["modifyvm", :id, "--vram", "16"]
       #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
       #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
       #
-      #vb.customize ["modifyvm", :id, "--audio", "dsound"]
-      #
-      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-      #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-      #
       # 8.8.2. Networking settings
       #vb.customize ["modifyvm", :id, "--macaddress1", "002500aabbcc"]
+      #
+      # 8.8.3. Serial port, audio, clipboard and USB settings
+      #vb.customize ["modifyvm", :id, "--audio", "dsound"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
   end
   #
   # View the documentation for the provider you're using for more
