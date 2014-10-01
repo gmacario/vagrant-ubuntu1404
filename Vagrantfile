@@ -83,6 +83,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # 8.8.3. Serial port, audio, clipboard and USB settings
       #vb.customize ["modifyvm", :id, "--audio", "dsound"]
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      #
+      # 8.8.4. Remote machine settings
+      #vb.customize ["modifyvm", :id, "--vrde", "on"]
   end
   #
   # View the documentation for the provider you're using for more
