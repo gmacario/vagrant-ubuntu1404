@@ -9,7 +9,7 @@ if [ "$BUILDDIR" = "" ]; then
     exit 1
 fi
 
-DESTDIR=$(echo $BUILDDIR | sed -e "s/\/home\/vagrant/\/vagrant\/tmp/")
+DESTDIR=$(echo $BUILDDIR | sed -e "s|$HOME|/vagrant/tmp|")
 echo "DBG: DESTDIR=$DESTDIR"
 
 mkdir -p "$DESTDIR/tmp/deploy"
