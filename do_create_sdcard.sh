@@ -69,10 +69,10 @@ done
 
 # Create partitions on SDCARD_DEV
 #
-# Start	 | End	   | Number of | Size   | Purpose
+# Start  | End     | Number of | Size   | Purpose
 # sector | sector  | sectors   |        |
 # --------------------------------------------------------------------------------------------------
-# 0	 | 16383   | 16384     | 8 MB   | Unpartitioned space for U-Boot, kernel and U-Boot envvars
+# 0      | 16383   | 16384     | 8 MB   | Unpartitioned space for U-Boot, kernel and U-Boot envvars
 # 16384  | 7744512 | 7662592   | ~3.7GB | Partitioned space for the Root Filesystem
 #
 sudo dd if=/dev/zero of=${SDCARD_DEV} bs=512 count=1024
