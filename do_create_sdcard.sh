@@ -12,7 +12,7 @@ TMP_MOUNT=/tmp/rootfs
 
 IMAGES_DIR=~/tmp/builds/mx6q-mel2014.05.361-test1/tmp/deploy/images/mx6q
 UBOOT_FILE=${IMAGES_DIR}/u-boot-sabre-sd-2013.04-r0.imx
-UIMAGE_FILE=${IMAGES_DIR}/uImage-mx6q.bin
+UIMAGE_FILE=${IMAGES_DIR}/uImage
 DTB_FILE=${IMAGES_DIR}/uImage-imx6q-sabresd.dtb
 ROOTFS_FILE=${IMAGES_DIR}/ivi-image-mx6q.tar.bz2
 
@@ -71,8 +71,9 @@ done
 # Start  | End     | Number of | Size   | Purpose
 # sector | sector  | sectors   |        |
 # --------------------------------------------------------------------------------------------------
-# 0      | 16383   | 16384     | 8 MB   | Unpartitioned space for U-Boot, kernel and U-Boot envvars
-# 16384  | 7744512 | 7662592   | ~3.7GB | Partitioned space for the Root Filesystem
+# 0      | 8191    | 8192      | 4 MB   | Unpartitioned space for U-Boot and U-Boot envvars
+# 8192   | 24575   | ?         | ? MB   | FAT32 partition for kernel and DTB
+# 24576  | ?       | ?         | ? GB   | ext4 partition for the Root Filesystem
 #
 echo "INFO: Creating partitions on ${SDCARD}"
 sudo dd if=/dev/zero of=${SDCARD} bs=512 count=1024
@@ -80,37 +81,51 @@ sudo fdisk ${SDCARD} <<END
 n
 p
 1
-16384
-7744512
+8192
+24575
+n
+p
+2
+24576
+
+t
+1
+c
+p
 w
 END
 
+echo "DEBUG: Format the partition for Kernel and DTP"
+sudo mkfs -t vfat ${SDCARD}1
+
 echo "DEBUG: Format the partition for the Root Filesystem"
-sudo mkfs -t ext3 ${SDCARD}1
+sudo mkfs -t ext4 ${SDCARD}2
 
 if [ "${UBOOT_FILE}" != "" ]; then
     echo "DEBUG: Load the memory card with the U-Boot loader specific to your target board"
     sudo dd if=${UBOOT_FILE} of=${SDCARD} bs=512 seek=2
 fi
 
+mkdir -p ${TMP_MOUNT}
+
+sudo mount ${SDCARD}1 ${TMP_MOUNT}
 if [ "${UIMAGE_FILE}" != "" ]; then
     echo "DEBUG: Load the memory card with the Linux kernel image specific to your target board"
-    sudo dd if=${UIMAGE_FILE} of=${SDCARD} bs=512 seek=2048
+    sudo cp ${UIMAGE_FILE} ${TMP_MOUNT}/uImage
 fi
-
 if [ "${DTB_FILE}" != "" ]; then
     echo "DEBUG: Load the memory card with the Device Tree Binary (DTB) file specific to your target board"
-    sudo dd if=${DTB_FILE} of=${SDCARD} bs=512 seek=1536
+    sudo cp ${DTB_FILE} ${TMP_MOUNT}/imx6q-sabresd.dtb
 fi
+sudo umount ${TMP_MOUNT}
 
+sudo mount ${SDCARD}2 ${TMP_MOUNT}
 if [ "${ROOTFS_FILE}" != "" ]; then
-    echo "DEBUG: Copy and uncompress the RFS partition to the one partitioned space on the memory card"
-    mkdir -p ${TMP_MOUNT}
-    sudo mount ${SDCARD}1 ${TMP_MOUNT}
+    echo "DEBUG: Uncompress the RFS tarball to the second partition on the memory card"
     sudo tar -C ${TMP_MOUNT} -xf ${ROOTFS_FILE}
     sync
-    sudo umount ${TMP_MOUNT}
 fi
+sudo umount ${TMP_MOUNT}
 
 echo "INFO: Please install the SD-Card onto the target board"
 
