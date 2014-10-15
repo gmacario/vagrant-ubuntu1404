@@ -39,7 +39,7 @@ sudo apt-get -y install bash-completion
 sudo apt-get -y install mc
 
 # Install useful packages for troubleshooting remote X (xlogo)
-#sudo apt-get -y install x11-apps xauth
+sudo apt-get -y install x11-apps xauth
 
 # Install packages required for building the Linux kernel
 #sudo apt-get -y install bc lzop make ncurses-dev u-boot-tools
