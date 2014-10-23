@@ -24,16 +24,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vm.provider "docker" do |d|
       # Additional Docker provider configuration
       # See https://docs.vagrantup.com/v2/docker/configuration.html
-      d.image   = "phusion/baseimage"
+      d.image   = "gmacario/baseimage:0.9.15"
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.create_args = [
-	"--name=test-lxc-conf",
-	"--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
-	"--lxc-conf=\"lxc.network.ipv4=1.2.3.4\""
+#	"--name=test-lxc-conf",
+        "--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
+        "--lxc-conf=\"lxc.network.ipv4=1.2.3.4\"",
       ]
       d.has_ssh = true
-
-      p "DEBUG: d.create_args", d.create_args
+      #p "DEBUG: d.create_args", d.create_args
     end
     v.vm.provider "docker" do |d, override|
       override.ssh.username = "root"
