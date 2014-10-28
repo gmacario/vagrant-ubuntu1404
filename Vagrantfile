@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "default" do |v|
     v.vm.provider "docker" do |d|
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
-      d.image   = "phusion/baseimage"
+      d.image   = "gmacario/baseimage"
       d.has_ssh = true
     end
     v.vm.provider "docker" do |d, override|
