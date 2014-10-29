@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       d.image   = "gmacario/baseimage"
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.create_args = [
-        #"--lxc-conf=\"lxc.network.hwaddr=aa.bb.cc.dd.ee.ff\"",
+        #"--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
         #"--lxc-conf=\"lxc.network.ipv4=1.2.3.4\"",
       ]
       d.has_ssh = true
