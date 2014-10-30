@@ -84,7 +84,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
     #
     # 8.8.2. Networking settings
-    #vb.customize ["modifyvm", :id, "--macaddress1", "002500aabbcc"]
+    #vb.customize ["modifyvm", :id, "--macaddress1", "aabbccddeeff"]
     #
     # 8.8.3. Serial port, audio, clipboard and USB settings
     #vb.customize ["modifyvm", :id, "--audio", "dsound"]
