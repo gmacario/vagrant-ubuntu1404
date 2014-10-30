@@ -66,22 +66,33 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  #config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  # 
-  #    # Use VBoxManage to customize the VM
-  #    vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-  #    #
-  #    vb.customize ["modifyvm", :id, "--memory", "2048"]
-  #    vb.customize ["modifyvm", :id, "--vram", "16"]
-  #    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
-  #    #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
-  #    #
-  #    vb.customize ["modifyvm", :id, "--audio", "dsound"]
-  #    #
-  #    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-  #end
+  config.vm.provider :virtualbox do |vb|
+    # Don't boot with headless mode
+    #vb.gui = true
+    #
+    # Use VBoxManage to customize the VM
+    # See https://www.virtualbox.org/manual/ch08.html
+    #
+    # 8.8.1. General settings
+    #vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+    #vb.customize ["modifyvm", :id, "--memory", "4096"]
+    #vb.customize ["modifyvm", :id, "--cpus", "2"]
+    #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    #
+    #vb.customize ["modifyvm", :id, "--vram", "16"]
+    #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+    #
+    # 8.8.2. Networking settings
+    #vb.customize ["modifyvm", :id, "--macaddress1", "002500aabbcc"]
+    #
+    # 8.8.3. Serial port, audio, clipboard and USB settings
+    #vb.customize ["modifyvm", :id, "--audio", "dsound"]
+    #vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    #
+    # 8.8.4. Remote machine settings
+    #vb.customize ["modifyvm", :id, "--vrde", "on"]
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
