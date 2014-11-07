@@ -1,5 +1,6 @@
 vagrant-ubuntu1404
 ==================
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/gmacario/vagrant-ubuntu1404?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Project for deploying Ubuntu-desktop 14.04 using Vagrant.
 
