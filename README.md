@@ -28,11 +28,10 @@ vagrant ssh
 
 ### Testing using the Docker provider
 
-Download the private SSH key to login to the phusion baseimage-docker:
+Download the private SSH key to login to the container:
 ```
-curl \
-https://raw.githubusercontent.com/phusion/baseimage-docker/master/image/insecure_key \
->phusion.key
+curl -o phusion.key \
+https://raw.githubusercontent.com/phusion/baseimage-docker/master/image/insecure_key
 ```
 
 Now build and start the guest VM as usual specifying `--provider=docker`
