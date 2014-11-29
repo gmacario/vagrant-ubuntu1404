@@ -25,8 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       d.image   = "gmacario/baseimage"
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.create_args = [
-        #"--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
-        #"--lxc-conf=\"lxc.network.ipv4=1.2.3.4\"",
+        # "--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
+        # "--lxc-conf=\"lxc.network.ipv4=1.2.3.4\"",
       ]
       d.has_ssh = true
     end
@@ -34,8 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       override.ssh.username = "root"
       override.ssh.private_key_path = "phusion.key"
     end
-    #v.vm.provision "shell", inline: "echo Hello"
-    #v.vm.synced_folder "./keys", "/vagrant"
+    # v.vm.provision "shell", inline: "echo Hello"
+    # v.vm.synced_folder "./keys", "/vagrant"
   end
 
   # Create a forwarded port mapping which allows access to a specific port
@@ -68,30 +68,30 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
-    #vb.gui = true
+    # vb.gui = true
     #
     # Use VBoxManage to customize the VM
     # See https://www.virtualbox.org/manual/ch08.html
     #
     # 8.8.1. General settings
-    #vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-    #vb.customize ["modifyvm", :id, "--memory", "4096"]
-    #vb.customize ["modifyvm", :id, "--cpus", "2"]
-    #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    # vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+    # vb.customize ["modifyvm", :id, "--memory", "4096"]
+    # vb.customize ["modifyvm", :id, "--cpus", "2"]
+    # vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     #
-    #vb.customize ["modifyvm", :id, "--vram", "16"]
-    #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
-    #vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+    # vb.customize ["modifyvm", :id, "--vram", "16"]
+    # vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    # vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
     #
     # 8.8.2. Networking settings
-    #vb.customize ["modifyvm", :id, "--macaddress1", "aabbccddeeff"]
+    # vb.customize ["modifyvm", :id, "--macaddress1", "aabbccddeeff"]
     #
     # 8.8.3. Serial port, audio, clipboard and USB settings
-    #vb.customize ["modifyvm", :id, "--audio", "dsound"]
-    #vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    # vb.customize ["modifyvm", :id, "--audio", "dsound"]
+    # vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     #
     # 8.8.4. Remote machine settings
-    #vb.customize ["modifyvm", :id, "--vrde", "on"]
+    # vb.customize ["modifyvm", :id, "--vrde", "on"]
   end
   #
   # View the documentation for the provider you're using for more
@@ -99,7 +99,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Run this command manually after XWindows is installed:
   # vagrant vbguest --do install
-  #config.vbguest.auto_update = false
+  # config.vbguest.auto_update = false
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -163,6 +163,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 
   # Enable provisioning with shell script
-  #config.vm.provision :shell, :path => "bootstrap.sh"
+  # config.vm.provision :shell, :path => "bootstrap.sh"
 
 end
