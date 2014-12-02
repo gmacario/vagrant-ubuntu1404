@@ -4,7 +4,7 @@ sudo apt-get update
 
 # NOTE: If kernel is upgraded, you should probaly need
 # to upgrade VirtualBox Guest Additions as well
-#sudo apt-get dist-upgrade
+#sudo apt-get -y dist-upgrade
 
 # Example: Install Apache
 #apt-get install -y apache2
