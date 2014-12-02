@@ -26,7 +26,7 @@ sudo apt-get -y install git git-svn tig
 sudo apt-get -y install mc
 
 # Install useful packages for troubleshooting remote X (xlogo)
-#sudo apt-get -y install x11-apps
+#sudo apt-get -y install x11-apps xauth
 
 # Install packages required by Sourcery CodeBench 2014.05 installer
 #sudo dpkg --add-architecture i386
