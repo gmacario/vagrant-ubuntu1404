@@ -15,6 +15,10 @@ sudo apt-get update
 # See http://askubuntu.com/questions/322122/switching-from-server-to-desktop
 #sudo apt-get -y install ubuntu-desktop
 
+# Install XFCE
+# See http://www.enqlu.com/2014/03/how-to-install-xfce-desktop-on-ubuntu-14-04-lts-trusty-tahr.html
+#sudo apt-get install xfce4
+
 # Install git and related tools
 sudo apt-get -y install git git-svn tig
 
