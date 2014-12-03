@@ -25,13 +25,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       d.image   = "gmacario/baseimage:0.9.15b"
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.create_args = [
-        # "--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
+        "--lxc-conf=\"lxc.network.hwaddr=00:50:56:10:0c:40\"",
         # "--lxc-conf=\"lxc.network.ipv4=1.2.3.4\"",
       ]
       d.has_ssh = true
     end
     v.vm.provider "docker" do |d, override|
-      override.ssh.username = "root"
+      # override.ssh.username = "root"
       override.ssh.private_key_path = "phusion.key"
     end
     # v.vm.provision "shell", inline: "echo Hello"
@@ -74,9 +74,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # See https://www.virtualbox.org/manual/ch08.html
     #
     # 8.8.1. General settings
-    # vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-    # vb.customize ["modifyvm", :id, "--memory", "4096"]
-    # vb.customize ["modifyvm", :id, "--cpus", "2"]
+    vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
     # vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     #
     # vb.customize ["modifyvm", :id, "--vram", "16"]
@@ -84,7 +84,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
     #
     # 8.8.2. Networking settings
-    # vb.customize ["modifyvm", :id, "--macaddress1", "aabbccddeeff"]
+    vb.customize ["modifyvm", :id, "--macaddress1", "005056100c40"]
     #
     # 8.8.3. Serial port, audio, clipboard and USB settings
     # vb.customize ["modifyvm", :id, "--audio", "dsound"]
@@ -163,6 +163,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 
   # Enable provisioning with shell script
-  # config.vm.provision :shell, :path => "bootstrap.sh"
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
 end
