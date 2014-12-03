@@ -2,6 +2,10 @@
 
 sudo apt-get update
 
+# Make sure that user "vagrant" exists, while "ubuntu" does not
+id vagrant && sudo adduser vagrant
+id ubuntu && sudo deluser ubuntu
+
 # NOTE: If kernel is upgraded, you should probaly need
 # to upgrade VirtualBox Guest Additions as well
 #sudo apt-get -y dist-upgrade
