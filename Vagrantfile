@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       d.has_ssh = true
     end
     v.vm.provider "docker" do |d, override|
-      override.ssh.username = "root"
+      # override.ssh.username = "root"
       override.ssh.private_key_path = "phusion.key"
     end
     # v.vm.provision "shell", inline: "echo Hello"
