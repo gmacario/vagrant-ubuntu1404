@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Prevent dialogs to enter settings
+# See http://mkrmr.wordpress.com/2012/08/12/add-your-own-customization-to-vagrant-boxes/
+export DEBIAN_FRONTEND=noninteractive
+
 sudo apt-get update
 
 # Make sure that user "vagrant" exists, while "ubuntu" does not
