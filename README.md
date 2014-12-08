@@ -45,4 +45,4 @@ When the guest OS is up and running you may login via SSH:
 vagrant ssh
 ```
 
-EOF
+<!-- EOF -->
