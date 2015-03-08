@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/gmacario/vagrant-ubuntu1404.png?label=ready&title=Ready)](https://waffle.io/gmacario/vagrant-ubuntu1404)
 vagrant-ubuntu1404
 ==================
 
