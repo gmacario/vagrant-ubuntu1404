@@ -2,7 +2,6 @@ vagrant-ubuntu1404
 ==================
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/gmacario/vagrant-ubuntu1404?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![PullReview stats](https://www.pullreview.com/github/gmacario/vagrant-ubuntu1404/badges/master.svg?)](https://www.pullreview.com/github/gmacario/vagrant-ubuntu1404/reviews/master)
 
 Project for deploying Ubuntu-desktop 14.04 using Vagrant.
