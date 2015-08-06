@@ -39,23 +39,23 @@ sudo apt-get -y install bash-completion
 sudo apt-get -y install mc
 
 # Install useful packages for troubleshooting remote X (xlogo)
-#sudo apt-get -y install x11-apps xauth
+sudo apt-get -y install x11-apps xauth
 
 # Install packages required for building the Linux kernel
 #sudo apt-get -y install bc lzop make ncurses-dev u-boot-tools
 
 # Install packages required by Sourcery CodeBench 2014.05 installer
-#sudo dpkg --add-architecture i386
-#sudo apt-get update
-#sudo apt-get -y install libgtk2.0-0:i386 libxtst6:i386 \
-#    gtk2-engines-murrine:i386 lib32stdc++6 libxt6:i386 \
-#    libdbus-glib-1-2:i386 libasound2:i386
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get -y install libgtk2.0-0:i386 libxtst6:i386 \
+    gtk2-engines-murrine:i386 lib32stdc++6 libxt6:i386 \
+    libdbus-glib-1-2:i386 libasound2:i386
 
 # Install packages required by MEL 2014.05 (Yocto)
-#sudo apt-get -y install gawk g++ diffstat texinfo chrpath
+sudo apt-get -y install gawk g++ diffstat texinfo chrpath
 
 # Install packages required by Vista 3.9.0
-#sudo apt-get -y install xterm
+sudo apt-get -y install xterm
 
 # Configure /bin/bash as default shell (required by Yocto, MEL, etc.)
 #echo "dash dash/sh boolean false" | sudo debconf-set-selections
