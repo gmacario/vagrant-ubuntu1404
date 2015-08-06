@@ -37,7 +37,7 @@ Download the private SSH key to login to the container:
 
 ```
 $ curl -o phusion.key \
-https://raw.githubusercontent.com/phusion/baseimage-docker/master/image/insecure_key
+https://raw.githubusercontent.com/phusion/baseimage-docker/master/image/services/sshd/keys/insecure_key
 ```
 
 Now build and start the guest VM as usual specifying `--provider=docker`
