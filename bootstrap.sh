@@ -30,6 +30,9 @@ id ubuntu  &>/dev/null && sudo deluser ubuntu
 # Install git and related tools
 sudo apt-get -y install git git-svn tig
 
+# Install package to enable autocompletion (i.e. for git)
+sudo apt-get -y install bash-completion
+
 # Install other things I will never live without...
 sudo apt-get -y install mc
 
