@@ -42,7 +42,7 @@ sudo apt-get -y install mc
 sudo apt-get -y install x11-apps xauth
 
 # Install packages required for building the Linux kernel
-#sudo apt-get -y install bc lzop make ncurses-dev u-boot-tools
+sudo apt-get -y install bc lzop make ncurses-dev u-boot-tools
 
 # Install packages required by Sourcery CodeBench 2014.05 installer
 sudo dpkg --add-architecture i386
