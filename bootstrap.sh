@@ -58,8 +58,8 @@ sudo apt-get -y install mc
 #sudo apt-get -y install xterm
 
 # Configure /bin/bash as default shell (required by Yocto, MEL, etc.)
-#echo "dash dash/sh boolean false" | sudo debconf-set-selections
-#sudo dpkg-reconfigure -f noninteractive dash
+echo "dash dash/sh boolean false" | sudo debconf-set-selections
+sudo dpkg-reconfigure -f noninteractive dash
 #ls -la /bin/sh
 
 # === EOF ===
