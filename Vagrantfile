@@ -78,8 +78,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #
     # 8.8.1. General settings
     # vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-    # vb.customize ["modifyvm", :id, "--memory", "4096"]
-    # vb.customize ["modifyvm", :id, "--cpus", "2"]
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
     # vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     #
     # vb.customize ["modifyvm", :id, "--vram", "16"]
