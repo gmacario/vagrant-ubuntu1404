@@ -10,6 +10,9 @@ sudo apt-get update
 # to upgrade VirtualBox Guest Additions as well
 #sudo apt-get -y dist-upgrade
 
+# Required for non-interactive dpkg-reconfigure
+sudo apt-get install -y debconf-utils
+
 # Make sure that user "vagrant" exists, while "ubuntu" does not
 id vagrant &>/dev/null || sudo adduser vagrant
 id ubuntu  &>/dev/null && sudo deluser ubuntu
@@ -56,7 +59,6 @@ sudo apt-get -y install mc
 #sudo apt-get -y install xterm
 
 # Link /bin/sh to /bin/bash instead of /bin/dash (required by Yocto, MEL, etc.)
-# sudo apt-get install -y debconf-utils
 # echo "dash dash/sh boolean false" | sudo debconf-set-selections
 # sudo dpkg-reconfigure -f noninteractive dash
 # ls -la /bin/sh
