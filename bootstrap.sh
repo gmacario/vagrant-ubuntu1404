@@ -6,8 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 sudo apt-get update
 
-# NOTE: If kernel is upgraded, you should probaly need
-# to upgrade VirtualBox Guest Additions as well
+# NOTE: If kernel is upgraded, you probably need to upgrade VirtualBox Guest Additions as well
 #sudo apt-get -y dist-upgrade
 
 # Required for non-interactive dpkg-reconfigure
