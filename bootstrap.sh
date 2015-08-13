@@ -58,7 +58,7 @@ sudo apt-get -y install mc
 # Install packages required by Vista 3.9.0
 #sudo apt-get -y install xterm
 
-# Link /bin/sh to /bin/bash instead of /bin/dash (required by Yocto, MEL, etc.)
+# Configure /bin/bash as default shell (required by Yocto, MEL, etc.)
 # echo "dash dash/sh boolean false" | sudo debconf-set-selections
 # sudo dpkg-reconfigure -f noninteractive dash
 # ls -la /bin/sh
