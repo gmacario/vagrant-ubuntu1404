@@ -45,11 +45,11 @@ sudo apt-get -y install mc
 sudo apt-get -y install bc lzop make ncurses-dev u-boot-tools
 
 # Install packages required by Sourcery CodeBench 2014.05 installer
-#sudo dpkg --add-architecture i386
-#sudo apt-get update
-#sudo apt-get -y install libgtk2.0-0:i386 libxtst6:i386 \
-#    gtk2-engines-murrine:i386 lib32stdc++6 libxt6:i386 \
-#    libdbus-glib-1-2:i386 libasound2:i386
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get -y install libgtk2.0-0:i386 libxtst6:i386 \
+    gtk2-engines-murrine:i386 lib32stdc++6 libxt6:i386 \
+    libdbus-glib-1-2:i386 libasound2:i386
 
 # Install packages required by MEL 2014.05 (Yocto)
 sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
