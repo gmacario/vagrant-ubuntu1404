@@ -5,7 +5,7 @@ vagrant-ubuntu1404
 [![PullReview stats](https://www.pullreview.com/github/gmacario/vagrant-ubuntu1404/badges/master.svg?)](https://www.pullreview.com/github/gmacario/vagrant-ubuntu1404/reviews/master)
 [![Stories in Ready](https://badge.waffle.io/gmacario/vagrant-ubuntu1404.png?label=ready&title=Ready)](https://waffle.io/gmacario/vagrant-ubuntu1404)
 
-Project for deploying Ubuntu-desktop 14.04 using Vagrant.
+Project for deploying [Ubuntu](http://www.ubuntu.com/) 14.04 using [Vagrant](https://www.vagrantup.com/).
 
 You may configure the actual packages to be installed through:
 * `Vagrantfile`
