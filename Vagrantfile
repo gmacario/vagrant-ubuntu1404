@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vm.provider "docker" do |d|
       # Additional Docker provider configuration
       # See https://docs.vagrantup.com/v2/docker/configuration.html
-      d.image   = "gmacario/baseimage:0.9.15b"
+      d.image   = "gmacario/baseimage-ssh:latest"
       d.cmd     = ["/sbin/my_init", "--enable-insecure-key"]
       d.create_args = [
         # "--lxc-conf=\"lxc.network.hwaddr=aa:bb:cc:dd:ee:ff\"",
