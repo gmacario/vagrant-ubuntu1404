@@ -54,6 +54,9 @@ sudo apt-get -y install x11-apps xauth
 # Install packages required by MEL 2014.05 (Yocto)
 sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
 
+sudo apt-get -y install byobu htop
+sudo apt-get -y autoremove
+
 # Install packages required by Vista 3.9.0
 #sudo apt-get -y install xterm
 
