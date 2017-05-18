@@ -27,7 +27,7 @@ id ubuntu  &>/dev/null && sudo deluser ubuntu
 
 # Install XFCE
 # See http://www.enqlu.com/2014/03/how-to-install-xfce-desktop-on-ubuntu-14-04-lts-trusty-tahr.html
-#sudo apt-get install xfce4
+sudo apt-get install xfce4
 
 # Install git and related tools
 sudo apt-get -y install git git-svn tig
@@ -39,7 +39,7 @@ sudo apt-get -y install bash-completion
 sudo apt-get -y install mc
 
 # Install useful packages for troubleshooting remote X (xlogo)
-#sudo apt-get -y install x11-apps xauth
+sudo apt-get -y install x11-apps xauth
 
 # Install packages required for building the Linux kernel
 #sudo apt-get -y install bc lzop make ncurses-dev u-boot-tools
@@ -52,14 +52,14 @@ sudo apt-get -y install mc
 #    libdbus-glib-1-2:i386 libasound2:i386
 
 # Install packages required by MEL 2014.05 (Yocto)
-#sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
+sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
 
 # Install packages required by Vista 3.9.0
 #sudo apt-get -y install xterm
 
 # Configure /bin/bash as default shell (required by Yocto, MEL, etc.)
-#echo "dash dash/sh boolean false" | sudo debconf-set-selections
-#sudo dpkg-reconfigure -f noninteractive dash
-#ls -la /bin/sh
+echo "dash dash/sh boolean false" | sudo debconf-set-selections
+sudo dpkg-reconfigure -f noninteractive dash
+ls -la /bin/sh
 
 # === EOF ===

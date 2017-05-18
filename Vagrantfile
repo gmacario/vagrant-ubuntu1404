@@ -12,13 +12,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Configure VM hostname
-  # config.vm.hostname = "my-vagrant-guest.local"
+  config.vm.hostname = "build-sysdk30-vm.local"
 
   config.vm.provider "virtualbox" do |vb, override|
     # Every Vagrant virtual environment requires a box to build off of.
-    override.vm.box = "ubuntu/trusty64"
+    override.vm.box = "ubuntu/trusty32"
     # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system.
-    override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    # override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
   end
 
   config.vm.define "default" do |v|
@@ -71,20 +71,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
-    # vb.gui = true
+    vb.gui = true
     #
     # Use VBoxManage to customize the VM
     # See https://www.virtualbox.org/manual/ch08.html
     #
     # 8.8.1. General settings
-    # vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
-    # vb.customize ["modifyvm", :id, "--memory", "4096"]
-    # vb.customize ["modifyvm", :id, "--cpus", "2"]
-    # vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    vb.customize ["modifyvm", :id, "--ostype", "Ubuntu"]
+    vb.customize ["modifyvm", :id, "--memory", "8192"]
+    vb.customize ["modifyvm", :id, "--cpus", "4"]
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     #
-    # vb.customize ["modifyvm", :id, "--vram", "16"]
-    # vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
-    # vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+    vb.customize ["modifyvm", :id, "--vram", "16"]
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
     #
     # 8.8.2. Networking settings
     # vb.customize ["modifyvm", :id, "--macaddress1", "aabbccddeeff"]
