@@ -54,6 +54,9 @@ sudo apt-get -y install x11-apps xauth
 # Install packages required by MEL 2014.05 (Yocto)
 sudo apt-get -y install gawk g++ diffstat texinfo chrpath m4
 
+# Install extra packages required for building Mentor Automotive SysDK 3.0
+sudo apt-get -y install gettext
+
 sudo apt-get -y install byobu htop
 sudo apt-get -y autoremove
 
