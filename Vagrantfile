@@ -71,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
-    vb.gui = true
+    # vb.gui = true
     #
     # Use VBoxManage to customize the VM
     # See https://www.virtualbox.org/manual/ch08.html
